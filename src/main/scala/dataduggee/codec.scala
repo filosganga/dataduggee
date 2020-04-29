@@ -33,7 +33,7 @@ object codec {
         typ: String,
         interval: Option[FiniteDuration],
         host: Option[String],
-        tags: Set[String]
+        tags: Set[Tag]
     ) = {
 
       def encodePoints(points: List[Point]) = {
@@ -44,12 +44,12 @@ object codec {
           .mkString("[", ",", "]")
       }
 
-      def encodeTags(tags: Set[String]) = {
-        """"tags":""" ++ tags.map(tencodeTag).mkString("[", ",", "]")
+      def encodeTags(tags: Set[Tag]) = {
+        """"tags":""" ++ tags.map(encodeTag).mkString("[", ",", "]")
       }
 
       def encodeTag(tag: Tag): String = {
-        tag.value.fold(s""""${tag.name}""""){value => s""""${tag.name}":"${value}""""}
+        tag.value.fold(s""""${tag.name}""""){value => s""""${tag.name}:${value}""""}
       }
 
       def encodeHost(host: String) = s""""host":"${host}""""

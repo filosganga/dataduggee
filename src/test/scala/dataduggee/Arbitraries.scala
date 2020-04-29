@@ -16,7 +16,9 @@ object arbitraries {
 
   val genTag: Gen[Tag] = for {
     n <- choose(0, 3)
-  } yield Tag(s"phil-dataduggee-tag-${n}")
+    tagName = s"phil-dataduggee-tag-$n"
+    tagValue = s"dataduggee-tag-after-colon-$n"
+  } yield Tag(tagName, Some("blah"))
 
   // Generate a instant between now and 30minutes ago
   implicit lazy val genInstant: Gen[Instant] = for {
