@@ -63,7 +63,7 @@ object DataDuggee {
 
       val response = for {
         req <- POST(body.through(fs2.text.utf8Encode), postMetricsUri, `Content-Type`(MediaType.application.json))
-        response <- client.successful[String](req)
+        response <- client.successful(req)
       } yield response
 
       response.void

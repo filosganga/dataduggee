@@ -3,16 +3,9 @@ package com.filippodeluca.dataduggee
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
-
-import io.circe.parser.parse
-import fs2._
 import cats.effect._
-import cats.implicits._
-
 import model._
-import codec._
 import arbitraries._
-import org.scalacheck.Gen
 import scala.concurrent.ExecutionContext
 import cats.data.NonEmptyList
 

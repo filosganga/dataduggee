@@ -7,7 +7,6 @@ import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 import io.circe.parser.parse
 import fs2._
 
-
 import model._
 import codec._
 import arbitraries._
